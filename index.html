@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YouTube Downloader</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>YouTube Downloader</h1>
+
+<input type="text" id="url" placeholder="Enter YouTube URL">
+<select id="type">
+  <option value="audio">Audio</option>
+  <option value="video">Video</option>
+</select>
+<select id="quality">
+  <option value="best">Best</option>
+  <option value="1080">High</option>
+  <option value="720">Medium</option>
+  <option value="480">Low</option>
+</select>
+<button onclick="startDownload()">Download</button>
+
+<h3>Logs:</h3>
+<pre id="logs">Waiting for download...</pre>
+<p id="finished"></p>
+
+<script>
+async function startDownload() {
+    const url = document.getElementById("url").value.trim();
+    const type = document.getElementById("type").value;
+    const quality = document.getElementById("quality").value;
+
+    if (!url) { alert("Please enter URL"); return; }
+
+    const logsEl = document.getElementById("logs");
+    const finishedEl = document.getElementById("finished");
+    logsEl.textContent = "Starting download...\n";
+    finishedEl.textContent = "";
+
+    const response = await fetch("/download", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, type, quality })
+    });
+
+    const data = await response.json();
+
+    if (data.logs) {
+        // Animate logs line by line
+        logsEl.textContent = "";
+        let i = 0;
+        function showLine() {
+            if (i < data.logs.length) {
+                logsEl.textContent += data.logs[i] + "\n";
+                i++;
+                setTimeout(showLine, 50);  // 50ms per line for animation
+            } else {
+                finishedEl.textContent = data.message;
+            }
+        }
+        showLine();
+    } else if (data.error) {
+        logsEl.textContent = data.error;
+    }
+}
+</script>
+</body>
+</html>
