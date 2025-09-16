@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>YouTube Video/Audio Downloader</h1>
+        <form id="download-form">
+            <label>YouTube URL:</label>
+            <input type="text" name="url" id="url" required>
+
+            <label>Quality:</label>
+            <select name="quality" id="quality">
+                <option value="best">Best (Full Quality)</option>
+                <option value="high">High (1080p)</option>
+                <option value="medium">Medium (720p)</option>
+                <option value="low">Low (480p)</option>
+            </select>
+
+            <label>Download Type:</label>
+            <select name="media_type" id="media_type">
+                <option value="video">Video (MP4)</option>
+                <option value="audio">Audio (MP3)</option>
+            </select>
+
+            <button type="submit">Start Download</button>
+        </form>
+
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <p id="status">Idle</p>
+        <p id="file-name"></p>
+
+        <button id="open-folder">Open Download Folder</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Launching...</title>
+    <style>
+        body {
+            background: #0f0f0f;
+            color: #00ffea;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .loader {
+            font-size: 2em;
+            letter-spacing: 3px;
+            animation: flicker 1.5s infinite;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        .creator {
+            position: absolute;
+            bottom: 20px;
+            font-size: 1em;
+            color: #00ffaa;
+            animation: slideUp 3s ease forwards;
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+    <script>
+        setTimeout(function () {
+            window.location.href = '/index';
+        }, 3000);  // Redirect after 3 seconds
+    </script>
+</head>
+
+<body>
+    <div class="loader">🚀 Launching YouTube Downloader</div>
+    <div class="creator">Created by ALAEN JOSHVA</div>
+</body>
+
+</html>

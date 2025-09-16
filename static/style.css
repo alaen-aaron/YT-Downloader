@@ -1,0 +1,69 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0f0f0f;
+    color: #00ffea;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #00ffea;
+    text-shadow: 0 0 10px #00ffea;
+    font-size: 2.5em;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffea;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00ffea;
+}
+
+input, select, button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #222;
+    color: #00ffea;
+    font-size: 1em;
+}
+
+button {
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #00ffea;
+}
+
+button:hover {
+    background: #00ffea;
+    color: #000;
+}
+
+#progress-container {
+    width: 100%;
+    background-color: #222;
+    border: 1px solid #00ffea;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 30px;
+    background: linear-gradient(90deg, #00ffea, #00bfff);
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px #00ffea;
+    }
+    to {
+        box-shadow: 0 0 30px #00bfff;
+    }
+}

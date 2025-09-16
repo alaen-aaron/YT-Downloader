@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; padding: 20px; background:#f2f2f2; }
+h1 { text-align:center; }
+input, select, textarea, button { margin:5px; padding:5px; }
+textarea { width: 100%; height: 100px; }
+.tabs { margin-bottom:10px; }
+.tablink { padding:10px; cursor:pointer; }
+.tabcontent { display:none; background:#fff; padding:15px; border-radius:5px; }
+.tablink.active { background:#007BFF; color:#fff; }
